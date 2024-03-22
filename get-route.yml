@@ -1,0 +1,11 @@
+- name: Get route for given prefix
+  hosts: all
+  tasks:
+  - name: Generate route for given prefix
+    shell: birdc6 s ro for "{{ PREFIX }}" all
+    register: GENERATED_ROUTE
+  
+  - name: Show output
+    debug:
+      var: GENERATED_ROUTE
+
